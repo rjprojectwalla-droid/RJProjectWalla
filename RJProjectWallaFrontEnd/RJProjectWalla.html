@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>RJProjectWalla — College Projects for Students</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="RJProjectWalla.css"/>
+</head>
+<body>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="logo" onclick="showPage('home')">RJProject<span>Walla</span></div>
+    <div class="nav-links">
+  
+      <a onclick="scrollToSection('projects-section')">Projects</a>
+      <a onclick="scrollToSection('how-section')">How it Works</a>
+      <a onclick="scrollToSection('contact-section')">Contact</a>
+<a id="login-link" onclick="openLogin()">Login</a>
+
+<a id="admin-link"
+   onclick="showPage('admin')"
+   style="display:none">
+   Admin Dashboard
+</a>
+
+<a id="logout-link"
+   onclick="logout()"
+   style="display:none">
+   Logout
+</a>
+    </div>
+  <button class="nav-cta" onclick="scrollToSection('projects-section')">
+  Browse Projects
+</button>
+
+<div class="hamburger" onclick="toggleMenu()">
+  <span></span><span></span><span></span>
+</div>
+  </div>
+</nav>
+
+<!-- ═══════════════════ HOME PAGE ═══════════════════ -->
+<div id="page-home" class="page active">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid-bg"></div>
+    <div class="hero-content fade-up">
+      <div class="hero-badge"><span class="hero-badge-dot"></span>100+ students served</div>
+      <h1>College Projects,<br><span class="hl">Delivered Fast.</span></h1>
+      <p class="hero-sub">Get ready-made Java, Python & Web projects for your college submissions. Affordable prices, source code included, full support.</p>
+      <div class="hero-actions">
+        <button class="btn btn-primary" onclick="scrollToSection('projects-section')">Browse Projects</button>  
+        <button class="btn btn-ghost" onclick="openWhatsApp('Hi! I want to know more about rjProjectwalla')">Chat on WhatsApp</button>
+
+      </div>
+      <div class="hero-stats">
+        <div><div class="hstat-num">50+</div><div class="hstat-label">Projects Available</div></div>
+        <div><div class="hstat-num">₹299</div><div class="hstat-label">Starting Price</div></div>
+        <div><div class="hstat-num">24hr</div><div class="hstat-label">Delivery Time</div></div>
+        <div><div class="hstat-num">100%</div><div class="hstat-label">Source Code</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section" id="how-section">
+    <div class="wrap">
+      <div class="fade-up">
+        <div class="sec-eyebrow">How it works</div>
+        <div class="sec-title">Order in 3 simple steps</div>
+        <p class="sec-sub">No complicated process. Pick a project, pay securely, get your files delivered.</p>
+      </div>
+      <div class="steps fade-up">
+        <div class="step">
+          <div class="step-num">STEP 01</div>
+          <h3>Browse & Pick</h3>
+          <p>Browse our collection of Java, Python, and Web projects. Filter by technology, price, or category.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">STEP 02</div>
+          <h3>Pay Securely</h3>
+          <p>Pay via PayPal or chat on WhatsApp to arrange payment. All transactions are 100% secure.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">STEP 03</div>
+          <h3>Get Your Files</h3>
+          <p>Receive source code, documentation, and setup guide within 24 hours via email or WhatsApp.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">STEP 04</div>
+          <h3>Full Support</h3>
+          <p>Stuck on setup? We help you run the project and explain the code — free of charge.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section" id="projects-section" style="background:var(--bg2);padding-top:5rem;padding-bottom:5rem;">
+    <div class="wrap">
+      <div class="fade-up">
+        <div class="sec-eyebrow">Our Projects</div>
+        <div class="sec-title">Pick your project</div>
+        <p class="sec-sub">All projects include full source code, documentation & setup guide.</p>
+      </div>
+      <div class="filter-bar fade-up" style="margin-top:2.5rem;">
+        <button class="filter-btn active" onclick="filterProjects('all',this)">All</button>
+        <button class="filter-btn" onclick="filterProjects('java',this)">Java</button>
+        <button class="filter-btn" onclick="filterProjects('python',this)">Python</button>
+        <button class="filter-btn" onclick="filterProjects('web',this)">Web</button>
+        <button class="filter-btn" onclick="filterProjects('database',this)">Database</button>
+      </div>
+      <div class="proj-grid" id="proj-grid"></div>
+    </div>
+  </section>
+
+
+   <!-- WHY US -->
+  <section class="section">
+    <div class="wrap">
+      <div class="fade-up">
+        <div class="sec-eyebrow">Why RJProjectWalla</div>
+        <div class="sec-title">Built for students, by a student</div>
+      </div>
+      <div class="why-grid fade-up">
+        <div class="why-card"><span class="why-icon">💰</span><h3>Student-Friendly Prices</h3><p>All projects priced under ₹999. We know how tight student budgets are — so we keep it affordable without cutting corners.</p></div>
+        <div class="why-card"><span class="why-icon">⚡</span><h3>Fast Delivery</h3><p>Get your project files within 24 hours of payment. No waiting weeks for freelancers to reply.</p></div>
+        <div class="why-card"><span class="why-icon">📦</span><h3>Source Code Included</h3><p>You get everything — full source code, database scripts, documentation, and a setup guide.</p></div>
+        <div class="why-card"><span class="why-icon">🎓</span><h3>Understand What You Submit</h3><p>We explain the code to you so you can answer viva questions confidently. No black boxes.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section" style="background:var(--bg2);">
+    <div class="wrap">
+      <div class="fade-up">
+        <div class="sec-eyebrow">Reviews</div>
+        <div class="sec-title">Students love it</div>
+      </div>
+      <div class="testi-grid fade-up">
+        <div class="testi">
+          <div class="stars">★★★★★</div>
+          <p class="testi-text">"Got my Java project in just 6 hours! Code was clean and well commented. Easily cleared my viva."</p>
+          <div class="testi-author">Rahul M.</div>
+          <div class="testi-college">VTU, Bangalore</div>
+        </div>
+        <div class="testi">
+          <div class="stars">★★★★★</div>
+          <p class="testi-text">"Super affordable and helpful. They even helped me set up the project on my laptop. Highly recommend!"</p>
+          <div class="testi-author">Priya K.</div>
+          <div class="testi-college">Anna University, Chennai</div>
+        </div>
+        <div class="testi">
+          <div class="stars">★★★★★</div>
+          <p class="testi-text">"Best platform for mini projects. Bought a Python project and it was exactly what I needed for my submission."</p>
+          <div class="testi-author">Aditya R.</div>
+          <div class="testi-college">RGPV, Bhopal</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact-section">
+    <div class="wrap">
+      <div class="fade-up">
+        <div class="sec-eyebrow">Contact</div>
+        <div class="sec-title">Have a question?</div>
+        <p class="sec-sub">Want a custom project or have a special request? Drop a message and we'll get back to you fast.</p>
+      </div>
+      <div class="contact-layout fade-up">
+        <div class="contact-form">
+          <div class="form-group"><label>Your Name</label><input type="text" id="c-name" placeholder="Rahul Kumar"/></div>
+          <div class="form-group"><label>Email</label><input type="email" id="c-email" placeholder="rahul@gmail.com"/></div>
+          <div class="form-group"><label>Project Type</label>
+            <select id="c-type">
+              <option>Java Mini Project</option>
+              <option>Python Mini Project</option>
+              <option>Web Project</option>
+              <option>Database Project</option>
+              <option>Custom Project</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Message</label><textarea id="c-msg" placeholder="Tell us what you need..."></textarea></div>
+          <button class="btn btn-primary" style="align-self:flex-start;" onclick="sendContact()">Send Message →</button>
+        </div>
+        <div class="contact-info">
+          <div class="cinfo-item">
+            <div class="cinfo-ico cinfo-ico-wa">💬</div>
+            <div><div class="cinfo-title">WhatsApp</div><div class="cinfo-val">+91 8904204550<br>Mon–Sat, 9am–9pm</div></div>
+          </div>
+          <div class="cinfo-item">
+            <div class="cinfo-ico cinfo-ico-mail">📧</div>
+            <div><div class="cinfo-title">Email</div><div class="cinfo-val">ak5142466@gmail.com<br>Reply within 2 hours</div></div>
+          </div>
+          <div class="cinfo-item">
+            <div class="cinfo-ico cinfo-ico-pay">💳</div>
+            <div><div class="cinfo-title">Payments</div><div class="cinfo-val">PayPal accepted<br>Secure & instant</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">RJProjectWalla</div>
+        <p class="footer-desc">Affordable college projects for students. Java, Python, Web & more. Fast delivery, full source code, real support.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <a onclick="scrollToSection('projects-section')">Browse Projects</a>
+        <a onclick="scrollToSection('how-section')">How it Works</a>
+        <a onclick="scrollToSection('contact-section')">Contact Us</a>
+     <a id="admin-footer" onclick="openLogin()">Admin Panel</a>
+      </div>
+      <div class="footer-col">
+        <h3>Technologies</h3>
+        <a>Java Projects</a>
+        <a>Python Projects</a>
+        <a>Web Projects</a>
+        <a>Database Projects</a>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2025 RJProjectWalla · Made with ❤️ for students · Bangalore, India</div>
+  </footer>
+
+</div><!-- end home page -->
+
+<!-- ═══════════════════ ADMIN PAGE ═══════════════════ -->
+<div id="page-admin" class="page">
+  <div class="admin-bg">
+    <div class="admin-layout">
+      <div class="admin-sidebar">
+        <div class="admin-logo">RJProjectWalla<br><small style="font-size:10px;color:var(--muted);font-family:var(--font-body);">Admin Panel</small></div>
+        <div class="admin-nav-item active" onclick="showAdminTab('dashboard')"><span class="ico">📊</span>Dashboard</div>
+        <div class="admin-nav-item" onclick="showAdminTab('projects')"><span class="ico">📁</span>Projects</div>
+        <div class="admin-nav-item" onclick="showAdminTab('orders')"><span class="ico">🛒</span>Orders</div>
+        <div class="admin-nav-item" onclick="showAdminTab('add')"><span class="ico">➕</span>Add Project</div>
+        <div style="margin-top:auto;padding-top:2rem;border-top:1px solid var(--border);">
+          <div class="admin-nav-item" onclick="logout()">
+  <span class="ico">🚪</span>Logout
+</div>
+          <div class="admin-nav-item" onclick="showPage('home')"><span class="ico">🏠</span>Back to Site</div>
+        </div>
+      </div>
+      <div class="admin-main">
+
+        <!-- DASHBOARD TAB -->
+        <div id="admin-dashboard">
+          <div class="admin-header">
+            <h1>Dashboard</h1>
+            <span style="font-size:12px;color:var(--muted);">Welcome back, RJ 👋</span>
+          </div>
+          <div class="admin-stats">
+            <div class="astat astat-green"><div class="astat-val" id="stat-revenue">₹0</div><div class="astat-label">Total Revenue</div></div>
+            <div class="astat astat-blue"><div class="astat-val" id="stat-orders">0</div><div class="astat-label">Total Orders</div></div>
+            <div class="astat astat-purple"><div class="astat-val" id="stat-projects">0</div><div class="astat-label">Projects Listed</div></div>
+            <div class="astat astat-amber"><div class="astat-val" id="stat-pending">0</div><div class="astat-label">Pending Orders</div></div>
+          </div>
+          <div class="admin-table-wrap">
+            <div class="admin-table-head"><h2>Recent Orders</h2></div>
+            <table>
+              <thead><tr><th>Student</th><th>Project</th><th>Amount</th><th>Status</th><th>Date</th></tr></thead>
+              <tbody id="orders-table-body"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- PROJECTS TAB -->
+        <div id="admin-projects" style="display:none;">
+          <div class="admin-header">
+            <h1>All Projects</h1>
+            <button class="btn btn-primary" style="padding:9px 18px;font-size:13px;" onclick="showAdminTab('add')">+ Add New</button>
+          </div>
+          <div class="admin-table-wrap">
+            <table>
+              <thead><tr><th>Project Name</th><th>Category</th><th>Price</th><th>Status</th><th>Actions</th></tr></thead>
+              <tbody id="admin-proj-table"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ORDERS TAB -->
+        <div id="admin-orders" style="display:none;">
+          <div class="admin-header"><h1>All Orders</h1></div>
+          <div class="admin-table-wrap">
+            <table>
+              <thead><tr><th>Order ID</th><th>Student</th><th>Project</th><th>Amount</th><th>Payment</th><th>Status</th></tr></thead>
+              <tbody id="all-orders-body"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ADD PROJECT TAB -->
+        <div id="admin-add" style="display:none;">
+          <div class="admin-header"><h1>Add New Project</h1></div>
+          <div class="add-proj-form">
+            <h2>Project Details</h2>
+            <div class="form-2col">
+              <div class="form-group"><label>Project Title</label><input type="text" id="ap-title" placeholder="Library Management System"/></div>
+              <div class="form-group"><label>Category</label>
+                <select id="ap-cat">
+                  <option value="java">Java</option>
+                  <option value="python">Python</option>
+                  <option value="web">Web</option>
+                  <option value="database">Database</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group"><label>Short Description</label><textarea id="ap-desc" placeholder="Brief description of the project..." style="min-height:80px;"></textarea></div>
+            <div class="form-2col">
+              <div class="form-group"><label>Price (₹)</label><input type="number" id="ap-price" placeholder="499"/></div>
+              <div class="form-group"><label>Technologies (comma separated)</label><input type="text" id="ap-tech" placeholder="Java, MySQL, Swing"/></div>
+            </div>
+            <div class="form-group"><label>Emoji Icon</label><input type="text" id="ap-icon" placeholder="📚" style="width:80px;font-size:24px;text-align:center;"/></div>
+            <div class="form-group">
+  <div class="popular-row">
+    <label>
+  <input type="checkbox" id="ap-popular">
+  🔥 Mark as Popular
+</label>
+  </div>
+</div>
+            <button class="btn btn-primary" onclick="addProject()" style="align-self:flex-start;margin-top:0.5rem;">Add Project →</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BUY MODAL -->
+<div class="modal-overlay" id="buy-modal">
+  <div class="modal">
+    <div class="modal-close" onclick="closeModal()">✕</div>
+    <div class="modal-title">Complete Your Order</div>
+    <div class="modal-sub">Choose your payment method below</div>
+    <div class="modal-price-box">
+      <div class="modal-proj-name" id="modal-proj-name">—</div>
+      <div class="modal-proj-price" id="modal-proj-price">—</div>
+    </div>
+    <button class="paypal-btn" onclick="handlePayPal()">
+      <span style="font-size:18px;">🅿</span> Pay with PayPal
+    </button>
+    <div class="modal-or">— or —</div>
+    <button class="wa-btn" id="modal-wa-btn" onclick="handleWhatsApp()">
+      💬 Order via WhatsApp
+    </button>
+    <div class="modal-note">After payment, send your email to WhatsApp and receive source code within 24 hours. Full setup support included.</div>
+  </div>
+</div>
+<script src="RJProjectWalla.js"></script>
+
+<div id="login-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.8);z-index:999;align-items:center;justify-content:center;">
+  <div style="background:#1a1a24;padding:2rem;border-radius:10px;width:300px;">
+    <h3 style="margin-bottom:1rem;">Admin Login</h3>
+    <input id="admin-user" placeholder="Username" style="width:100%;margin-bottom:10px;padding:8px;">
+    <input id="admin-pass" type="password" placeholder="Password" style="width:100%;margin-bottom:10px;padding:8px;">
+    <button onclick="loginAdmin()" style="width:100%;padding:10px;background:#7c5cfc;color:#fff;border:none;">Login</button>
+  </div>
+</div>
+
+</body>
+</html>
