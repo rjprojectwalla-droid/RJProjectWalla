@@ -208,7 +208,7 @@ function addProject() {
   // 🔥 MAIN LOGIC HERE
   if (editingId) {
 
-    fetch(`http://localhost:8080/api/projects/${editingId}`, {
+    fetch(`https://rjprojectwalla.onrender.com/api/projects/${editingId}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -242,7 +242,7 @@ function addProject() {
       });
 
   } else {
-    fetch('http://localhost:8080/api/projects', {
+    fetch('https://rjprojectwalla.onrender.com/api/projects', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -278,7 +278,7 @@ function addProject() {
 
 function deleteProject(id) {
   if (!confirm('Delete this project?')) return;
-  fetch(`http://localhost:8080/api/projects/${id}`, {
+  fetch(`https://rjprojectwalla.onrender.com/api/projects/${id}`, {
     method: 'DELETE',
     headers: {
       'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -424,7 +424,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("admin-link").style.display = "none";
     document.getElementById("admin-footer").style.display = "none";
   }
-  fetch('http://localhost:8080/api/projects')
+  fetch('https://rjprojectwalla.onrender.com/api/projects')
     .then(res => res.json())
     .then(data => {
       projects = data;
@@ -450,7 +450,7 @@ async function loginAdmin() {
   try {
 
     const response = await fetch(
-      "http://localhost:8080/auth/login",
+      "https://rjprojectwalla.onrender.com/auth/login",
       {
         method: "POST",
         headers: {
