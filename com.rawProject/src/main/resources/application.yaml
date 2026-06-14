@@ -3,9 +3,9 @@ spring:
     name: com.rawProject
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/RJProjectWalla
-    username: postgres
-    password: root
+    url: jdbc:postgresql://ep-odd-bar-aoe03nd2-pooler.c-2.ap-southeast-1.aws.neon.tech/neondb?sslmode=require
+    username: neondb_owner
+    password: npg_yBt4NoA5LahZ
     driver-class-name: org.postgresql.Driver
 
   jpa:
